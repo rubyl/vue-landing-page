@@ -1,85 +1,36 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li>
-        <a
-          href="https://vuejs.org"
-          target="_blank"
-        >
-          Core Docs
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://forum.vuejs.org"
-          target="_blank"
-        >
-          Forum
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://chat.vuejs.org"
-          target="_blank"
-        >
-          Community Chat
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://twitter.com/vuejs"
-          target="_blank"
-        >
-          Twitter
-        </a>
-      </li>
-      <br>
-      <li>
-        <a
-          href="http://vuejs-templates.github.io/webpack/"
-          target="_blank"
-        >
-          Docs for This Template
-        </a>
-      </li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li>
-        <a
-          href="http://router.vuejs.org/"
-          target="_blank"
-        >
-          vue-router
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vuex.vuejs.org/"
-          target="_blank"
-        >
-          vuex
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vue-loader.vuejs.org/"
-          target="_blank"
-        >
-          vue-loader
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/awesome-vue"
-          target="_blank"
-        >
-          awesome-vue
-        </a>
-      </li>
-    </ul>
+  <div class="MainPage__root">
+    <div class="PageImageLeader__root" v-bind:style="{ backgroundImage: 'url(' + landingImg + ')' }">
+      <h1 class="PageImageLeader__heading">{{imgHeading}}</h1>
+      <p class="PageImageLeader__sub-headline">{{imgSubheadline}}</p>
+    </div>
+    <div class="ThreePartSection__root PageSection__border">
+      <div class="ThreePartSection__part">
+        <font-awesome-icon icon="coffee" />
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam lobortis vestibulum ornare. Sed egestas metus et metus auctor pellentesque. Suspendisse.</p>
+      </div>
+      <div class="ThreePartSection__part">
+        <font-awesome-icon icon="coffee" />
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam lobortis vestibulum ornare. Sed egestas metus et metus auctor pellentesque. Suspendisse.</p>
+      </div>
+      <div class="ThreePartSection__part">
+        <font-awesome-icon icon="coffee" />
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam lobortis vestibulum ornare. Sed egestas metus et metus auctor pellentesque. Suspendisse.</p>
+      </div>
+    </div>
+    <div class="MakeCookies__root PageSection__border">
+      <h2> Make Some Cookies</h2>
+      <div class="ShortDividerLine__root"/>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <div class="MakeCookies__info">
+        <div>
+          <h3>Bake them with friends</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec cursus mi varius, cursus eros vel, pellentesque est. Integer molestie, nibh non commodo ornare, sapien lorem.
+          </p>
+        </div>
+        <img class="MakeCookies__image" v-bind:src="cookiesImg" />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -88,7 +39,10 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      landingImg: '../static/assets/images/aleksander-soroka-1187920-unsplash.jpg',
+      imgHeading: 'Starting to Look a lot like Christmas',
+      imgSubheadline: 'Let it Snow',
+      cookiesImg: '../static/assets/images/mara-conan-233715-unsplash.jpg'
     }
   }
 }
@@ -96,18 +50,75 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
-  font-weight: normal;
+
+.MainPage__root {
+  color: #FD8661;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
+
+.PageSection__border {
+  border-bottom: 1px solid #c4c0c0;
+  border-top: 1px solid #c4c0c0;
 }
-li {
-  display: inline-block;
-  margin: 0 10px;
+
+.PageImageLeader__root {
+  display: grid;
+  grid-template-rows: 50%;
+  -webkit-box-sizing: content-box;
+  background-color: #FFFFFF;
+  background-position: center 100%;
+  background-size: cover;
+  box-sizing: content-box;
+  height: 70vh;
+  max-height: 700px;
+  min-height: 450px;
+  text-align: center;
+  text-shadow: 2px 2px #FFFFFF;
 }
-a {
-  color: #42b983;
+
+.PageImageLeader__heading {
+  grid-row: 1;
+  align-self: end;
+  color: #FD8661;
+  margin: 0;
+}
+
+.PageImageLeader__sub-headline {
+  grid-row: 2;
+  color: #D50C35;
+  font-size: 18px;
+  margin: 0;
+}
+
+.ThreePartSection__root {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 80px 0 80px 0;
+}
+
+.ThreePartSection__part {
+  padding: 20px;
+}
+.ShortDividerLine__root {
+  border-top: 1px solid white;
+  margin: 0 auto;
+  padding-bottom: 40px;
+  width: 80px;
+}
+
+.MakeCookies__root {
+  background-color: #FE8968;
+  color: white;
+}
+
+.MakeCookies__info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  padding: 15px;
+}
+
+.MakeCookies__image {
+  width: 70%;
+  padding: 20px;
 }
 </style>
